@@ -1,0 +1,16 @@
+stages:
+  - source code checks
+  - build
+
+include:
+  - project: learning_materials/js
+    ref: master
+    file: common-ci.yml
+
+build:
+  extends: .node-job
+  stage: build
+  script:
+    - npm run build
+  only:
+    - branches
